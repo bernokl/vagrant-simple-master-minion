@@ -1,0 +1,11 @@
+file_roots:
+  base:
+    - /root/salting-prod/salt/roots
+  dev:
+    - /root/salting-dev/salt/roots
+pillar_roots:
+  base:
+    - /root/salting-prod/salt/pillars
+  dev:
+    - /root/salting-dev/salt/pillars
+
