@@ -41,10 +41,16 @@ end
     config.vm.box = "trusty"
     config.vm.provider "virtualbox" do |v|
     config.vm.synced_folder "salt/", "/srv", owner: "root", group: "root"
-      v.customize ["modifyvm", :id, "--memory", "256"]
+      v.customize ["modifyvm", :id, "--memory", "512"]
     end
     config.vm.hostname = 'lcl-master'
     config.vm.network "private_network", ip: "192.168.50.3"
+
+## Accept the minion key on the master
+#    config.vm.provision :shell do |shell|
+#      shell.inline = "salt-key -A"
+#    end
+    
     config.vm.provision :salt do |config|
 
       config.minion_config = "salt/salt-configs/minion"
@@ -54,7 +60,12 @@ end
       config.master_key = 'salt/salt-keys/masterkey.pem'
       config.master_pub = 'salt/salt-keys/masterkey.pub'
       config.master_config = "salt/salt-configs/master"
-
+     
+## Lets just pre-seed the keys 
+      config.seed_master = {
+           'lcl-minion' => "salt/salt-keys/minion2.pub",
+           'lcl-master' => "salt/salt-keys/masterkey.pub",
+        }
       
       config.install_master = true
       config.run_highstate = false
