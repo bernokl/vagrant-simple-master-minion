@@ -1,11 +1,20 @@
+auto_accept: True
 file_roots:
   base:
-    - /root/salting-prod/salt/roots
+    - /srv/roots/
   dev:
-    - /root/salting-dev/salt/roots
+    - /srv/roots/
+  prod:
+    - /srv/roots/
+  lcl:
+    - /srv/roots/
 pillar_roots:
   base:
-    - /root/salting-prod/salt/pillars
+    - /srv/pillars/
   dev:
-    - /root/salting-dev/salt/pillars
+    - /srv/pillars/
+  prod:
+    - /srv/pillars/
+  lcl:
+    - /srv/pillars/
 

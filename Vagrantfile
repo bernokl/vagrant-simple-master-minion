@@ -26,14 +26,13 @@ Vagrant.configure("2") do |config|
 
       config.minion_config = "salt/salt-configs/minion"
       config.run_highstate = true
-      config.run_highstate = true
       config.install_type = "git"
       config.install_args = "v2016.3.2"
       config.verbose = true
+      
       config.minion_config = "salt/salt-configs/minion"
       config.minion_key = "salt/salt-keys/minion2.pem"
       config.minion_pub = "salt/salt-keys/minion2.pub"
-
     end
   end
 end
@@ -56,6 +55,7 @@ end
       config.master_pub = 'salt/salt-keys/masterkey.pub'
       config.master_config = "salt/salt-configs/master"
 
+      
       config.install_master = true
       config.run_highstate = false
       config.install_type = "git"
