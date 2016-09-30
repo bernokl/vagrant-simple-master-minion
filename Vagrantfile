@@ -64,7 +64,7 @@ end
 ## Lets just pre-seed the keys 
       config.seed_master = {
            'lcl-minion' => "salt/salt-keys/minion2.pub",
-           'lcl-master' => "salt/salt-keys/masterkey.pub",
+           'lcl-master' => "salt/salt-keys/minion2.pub",
         }
       
       config.install_master = true
